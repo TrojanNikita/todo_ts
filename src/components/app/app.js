@@ -23,7 +23,7 @@ const  App =()=>{
                         <StatusFilter />
                         <AddItem/>
                         <Switch>
-                            <Route exact path='/' component={All} />
+                            <Route exaxt path='/all' component={All} />
                             <Route path='/active' component={Active} />
                             <Route path='/done' component={Done} />
                         </Switch>

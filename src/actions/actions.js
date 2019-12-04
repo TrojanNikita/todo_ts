@@ -3,45 +3,33 @@ import ActionTypes from './actionTypes';
 
 
 
-export const addTodo = (todo) =>(dispatch) => {
-    return dispatch({
+export const addTodo = (todo) =>({
           type: ActionTypes.ADD_TODO,
           payload: todo
     });
-};
 
 //TODO: если включен режим редактирования не запускается
-export const toggleTodo = (id) =>(dispatch) => {
-    return dispatch({
+export const toggleTodo = (id) =>({
         type: ActionTypes.TOGGLE_TODO,
         payload:id
     });
-};
 
-export const toggleAll= (done) =>(dispatch) => {
-    return dispatch({
+export const toggleAll= (done) =>({
         type: ActionTypes.TOGGLE_ALL,
         payload:done
     });
-};
 
-export const editTodo= (id,label) =>(dispatch) => {
-    return dispatch({
+export const editTodo= (id,newLabel) =>({
         type: ActionTypes.EDIT_TODO,
-        payload:label,
+        payload:newLabel,
         id:id
     });
-};
 
-export const deleteCompleted=()=>(dispatch)=>{
-    return dispatch({
+export const deleteCompleted=()=>({
         type: ActionTypes.DELETE_COMPLETED_TODOS
-    });
-};
+});
 
-export const deleteTodo = (id) =>(dispatch) => {
-    return dispatch({
+export const deleteTodo = (id) =>({
         type: ActionTypes.DELETE_TODO,
         payload:id
-    });
-};
+});

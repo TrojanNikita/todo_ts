@@ -2,9 +2,6 @@
   font-size: 1.25rem;
 }
 
-.todo-list-item button {
-}
-
 
 
 .todo-list-item .left {
@@ -17,14 +14,11 @@
   display: inline-block;
 }
 
-.todo-list-item .left .left-view{
-  word-wrap: break-word;
-}
-
 .todo-list-item .left .left-edit {
   outline:none;
   border:none;
-  word-wrap: break-word;
+   width:100%;
+   cursor: pointer;
 }
 .todo-list-item .right{
   width: 20%;
@@ -39,7 +33,7 @@
   text-align: center;
 }
 
-.todo-list-item.done .left {
+.todo-list-item.done .left .left-edit{
 
   text-decoration: line-through;
 }

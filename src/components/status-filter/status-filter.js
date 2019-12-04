@@ -1,28 +1,32 @@
 import React from 'react';
 
-import {Link, withRouter} from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 
 import './status-filter.scss';
 
-const StatusFilter =({location})=>{
-    const currentPath=location.pathname;
+const StatusFilter =()=>{
+
+
     const classNames="filter-bar-item btn btn-light col-sm"
     return (
       <div className="filter-bar row">
-        <Link   to='/'
-                className={currentPath.search('/') ? classNames:classNames+' active'}>
+        <NavLink   to='/all'
+                className={classNames}
+                activeClassName='active'>
                 All
-        </Link>
-        <Link   to='/active'
-                className={currentPath.search('/active') ? classNames:classNames+' active'}>
+        </NavLink>
+        <NavLink   to='/active'
+                className={classNames}
+                activeClassName='active'>
                 Active
-        </Link>
-        <Link   to='/done'
-                className={currentPath.search('/done') ? classNames:classNames+' active'}>
+        </NavLink>
+        <NavLink   to='/done'
+                className={classNames}
+                activeClassName='active'>
                 Done
-        </Link>
+        </NavLink>
       </div>
     );
 }
 
-export default withRouter(StatusFilter);
+export default StatusFilter;

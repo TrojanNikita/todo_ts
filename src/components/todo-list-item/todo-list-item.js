@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useRef} from 'react';
 import {connect} from 'react-redux';
 import {toggleTodo,deleteTodo, editTodo} from './../../actions/actions';
 import './todo-list-item.scss';
@@ -7,7 +7,7 @@ const TodoListItem =({id,label,editTodo, deleteTodo,toggleTodo,done})=>{
 
     const [editMode,setEditMode]=useState(false);
 
-
+    const inputEl = useRef();
 
     //Для cross out
     let classNames='todo-list-item';
@@ -29,35 +29,45 @@ const TodoListItem =({id,label,editTodo, deleteTodo,toggleTodo,done})=>{
     const classNameEdit=editMode?
     "right-btn btn btn-outline-dark btn-sm float-right active":
     "right-btn btn btn-outline-dark btn-sm float-right"
-    const onEditClick=()=>{
+
+    const onEditClick=(e)=>{
+        e.preventDefault(); 
         if(editMode){
+            console.log(newLabel);
+            //если после изменения пустая тудушка, удаляем ее
             newLabel===''?
                   deleteTodo(id):editTodo(id,newLabel);
+            //меняем режим по нажатию кнопки редактирования 
             setEditMode(false);
-        }else{
+        }else{                     
             setNewLabel(label);
+            //меняем режим по нажатию кнопки редактирования             
             setEditMode(true);
+            //выводим курсор по нажатию кнопки редактирования
+            inputEl.current.focus();
         }
+
     };
 
 
-    //если режим редактирования включен, создаем инпут , иначе спан
-    const item=editMode?
-          <input
-                className='left-edit'
-                value={newLabel}
-                onChange={onLabelChange}
-          />:
-          <span className='left-view'>{label}</span>
-
 
     return (
-      <div className={classNames}>
+        <form className={classNames}
+            onSubmit={onEditClick}>
             <div
                 className="left"
                 onClick={ ()=>toggleTodo(id)}>
-                {item}
+                <input
+                        ref={inputEl} 
+                        type='text'
+                        className='left-edit'
+                        value={!editMode?label:newLabel}
+                        onChange={onLabelChange}
+                        onSubmit={onEditClick}
+                        readOnly={!editMode}
+                />
             </div>
+
             <div className="right">    
                     <button type="button"
                         className="right-btn btn btn-outline-danger btn-sm float-right"
@@ -66,19 +76,20 @@ const TodoListItem =({id,label,editTodo, deleteTodo,toggleTodo,done})=>{
                     </button>
                     <button type="button"
                         className={classNameEdit}
-                        onClick={()=>onEditClick()}>
+                        onClick={onEditClick}>
                         <i className="my-icon fa fa-pencil" />
                     </button>
             </div>
-      </div>
+
+      </form>
     );
 };
 
 //выполнить, удалить, редактировать
-const mapDispatchToProps = dispatch => ({
-      toggleTodo: (id) => dispatch(toggleTodo(id)),
-      deleteTodo: (id) => dispatch(deleteTodo(id)),
-      editTodo:(id,label)=>dispatch(editTodo(id, label))
+const mapDispatchToProps = ({
+      toggleTodo,
+      deleteTodo,
+      editTodo
 })
 
 
