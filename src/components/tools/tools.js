@@ -24,7 +24,7 @@ const Tools=({toggleAll, deleteCompleted, doneCount})=>{
 
 //Количество выполненных дел
 const mapStateToProps=(state) =>{
-  const doneCount = state.todos.filter((el)=>el.done).length;
+  const doneCount = state.todos.todos.filter((el)=>el.done).length;
   return {
     doneCount
   }

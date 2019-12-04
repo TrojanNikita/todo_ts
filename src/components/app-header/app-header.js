@@ -18,7 +18,7 @@ const AppHeader=({activeCount})=>{
 
 //Cчетчик активных категорий
 const mapStateToProps=(state) =>{
-      const activeCount = state.todos.filter((el)=>!el.done).length;
+      const activeCount = state.todos.todos.filter((el)=>!el.done).length;
       return {
         activeCount
       }

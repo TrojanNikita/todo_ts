@@ -3,7 +3,7 @@ import TodoList from '../todo-list';
 
 //передаем списку все
 const mapStateToProps=(state) =>{
-      const data = state.todos;
+      const data = state.todos.todos;
       return {
         data
       }

@@ -4,7 +4,7 @@ import TodoList from '../todo-list';
 
 //фильтруем и передаем списку выполненные
 const mapStateToProps=(state) =>{
-      const data = state.todos.filter((el)=>el.done);;
+      const data = state.todos.todos.filter((el)=>el.done);;
       return {
         data
       }
