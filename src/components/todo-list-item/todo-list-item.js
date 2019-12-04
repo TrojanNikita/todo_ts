@@ -43,32 +43,33 @@ const TodoListItem =({id,label,editTodo, deleteTodo,toggleTodo,done})=>{
     //если режим редактирования включен, создаем инпут , иначе спан
     const item=editMode?
           <input
-                className='todo-list-item-label-edit'
+                className='todo-list-item-left-edit'
                 value={newLabel}
                 onChange={onLabelChange}
           />:
-          <span>{label}</span>
+          <span className='todo-list-item-left-view'>{label}</span>
 
 
     return (
-      <span className={classNames}>
-            <span
-                className="todo-list-item-label"
+      <div className={classNames}>
+            <div
+                className="todo-list-item-left"
                 onClick={()=>toggleTodo(id)}>
                 {item}
-            </span>
-
-            <button type="button"
-                className="btn btn-outline-danger btn-sm float-right"
-                onClick={()=>deleteTodo(id)}>
-                <i className="fa fa-trash-o" />
-            </button>
-            <button type="button"
-                className={classNameEdit}
-                onClick={()=>onEditClick()}>
-                <i className="fa fa-pencil" />
-            </button>
-      </span>
+            </div>
+            <div className="todo-list-item-right">    
+                    <button type="button"
+                        className="btn btn-outline-danger btn-sm float-right"
+                        onClick={()=>deleteTodo(id)}>
+                        <i className="fa fa-trash-o" />
+                    </button>
+                    <button type="button"
+                        className={classNameEdit}
+                        onClick={()=>onEditClick()}>
+                        <i className="fa fa-pencil" />
+                    </button>
+            </div>
+      </div>
     );
 };
 

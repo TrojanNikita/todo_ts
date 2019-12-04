@@ -2,27 +2,47 @@
   font-size: 1.25rem;
 }
 
-.todo-list-item button {
-  width: 35px;
-  margin: 3px;
-}
+// .todo-list-item button {
+//   width: 25px;
+//   margin: 3px;
+// }
 
-.todo-list-item-label {
+.todo-list-item-left {
   margin-left: 1.25rem;
+  width: 70%;
   line-height: 35px;
   cursor: pointer;
+  border: 5px;
   user-select: none;
+  display: inline-block;
 }
 
-.todo-list-item-label-edit {
+.todo-list-item-left-view{
+  word-wrap: break-word;
+}
+
+.todo-list-item-left-edit {
   outline:none;
   border:none;
+  word-wrap: break-word;
 }
 .todo-list-item-label-edit.active {
   background-color: green;
 }
 
-.todo-list-item.done .todo-list-item-label {
+.todo-list-item-right{
+  width: 20%;
+  position:absolute;
+  display: inline-block;
+}
+
+
+.todo-list-item.done .todo-list-item-left {
+
+  text-decoration: line-through;
+}
+
+.todo-list-item-left-view.done {
   text-decoration: line-through;
 }
 
