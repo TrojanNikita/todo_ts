@@ -12,10 +12,13 @@ const AddItem=({addTodo})=> {
     setLabel(e.target.value);
   };
 
+  //если label не пустой добавляем тудушку
   const onSubmit=(e)=>{
     e.preventDefault(); //Браузер не будет перезагружать страницу
-    addTodo(label);
-    setLabel('');
+    if(label){
+      addTodo(label);
+      setLabel('');
+    }
   };
 
     return(
