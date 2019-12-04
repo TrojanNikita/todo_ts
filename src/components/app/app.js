@@ -21,12 +21,12 @@ const  App =()=>{
                   <div className="todo-app">
                         <AppHeader />
                         <StatusFilter />
+                        <AddItem/>
                         <Switch>
                             <Route exact path='/' component={All} />
                             <Route path='/active' component={Active} />
                             <Route path='/done' component={Done} />
                         </Switch>
-                        <AddItem/>
                         <Tools/>
                   </div>
         );
