@@ -8,6 +8,7 @@ const TodoListItem =({id,label,editTodo, deleteTodo,toggleTodo,done})=>{
     const [editMode,setEditMode]=useState(false);
 
 
+
     //Для cross out
     let classNames='todo-list-item';
     if (done) classNames+=' done';
@@ -54,7 +55,7 @@ const TodoListItem =({id,label,editTodo, deleteTodo,toggleTodo,done})=>{
       <div className={classNames}>
             <div
                 className="left"
-                onClick={()=>toggleTodo(id)}>
+                onClick={ ()=>toggleTodo(id)}>
                 {item}
             </div>
             <div className="right">    

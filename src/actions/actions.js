@@ -10,7 +10,7 @@ export const addTodo = (todo) =>(dispatch) => {
     });
 };
 
-
+//TODO: если включен режим редактирования не запускается
 export const toggleTodo = (id) =>(dispatch) => {
     return dispatch({
         type: ActionTypes.TOGGLE_TODO,
