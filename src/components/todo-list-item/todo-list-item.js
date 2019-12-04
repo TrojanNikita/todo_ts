@@ -26,8 +26,8 @@ const TodoListItem =({id,label,editTodo, deleteTodo,toggleTodo,done})=>{
     //В случае повторного нажатия, если строка не стала пустой изменяем
     //в глобальном хранилище todo, иначе вообще удаляем пустую строку
     const classNameEdit=editMode?
-    "btn btn-outline-dark btn-sm float-right active":
-    "btn btn-outline-dark btn-sm float-right"
+    "right-btn btn btn-outline-dark btn-sm float-right active":
+    "right-btn btn btn-outline-dark btn-sm float-right"
     const onEditClick=()=>{
         if(editMode){
             newLabel===''?
@@ -43,30 +43,30 @@ const TodoListItem =({id,label,editTodo, deleteTodo,toggleTodo,done})=>{
     //если режим редактирования включен, создаем инпут , иначе спан
     const item=editMode?
           <input
-                className='todo-list-item-left-edit'
+                className='left-edit'
                 value={newLabel}
                 onChange={onLabelChange}
           />:
-          <span className='todo-list-item-left-view'>{label}</span>
+          <span className='left-view'>{label}</span>
 
 
     return (
       <div className={classNames}>
             <div
-                className="todo-list-item-left"
+                className="left"
                 onClick={()=>toggleTodo(id)}>
                 {item}
             </div>
-            <div className="todo-list-item-right">    
+            <div className="right">    
                     <button type="button"
-                        className="btn btn-outline-danger btn-sm float-right"
+                        className="right-btn btn btn-outline-danger btn-sm float-right"
                         onClick={()=>deleteTodo(id)}>
-                        <i className="fa fa-trash-o" />
+                        <i className="my-icon fa fa-trash-o" />
                     </button>
                     <button type="button"
                         className={classNameEdit}
                         onClick={()=>onEditClick()}>
-                        <i className="fa fa-pencil" />
+                        <i className="my-icon fa fa-pencil" />
                     </button>
             </div>
       </div>

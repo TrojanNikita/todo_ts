@@ -2,12 +2,12 @@
   font-size: 1.25rem;
 }
 
-// .todo-list-item button {
-//   width: 25px;
-//   margin: 3px;
-// }
+.todo-list-item button {
+}
 
-.todo-list-item-left {
+
+
+.todo-list-item .left {
   margin-left: 1.25rem;
   width: 70%;
   line-height: 35px;
@@ -17,36 +17,29 @@
   display: inline-block;
 }
 
-.todo-list-item-left-view{
+.todo-list-item .left .left-view{
   word-wrap: break-word;
 }
 
-.todo-list-item-left-edit {
+.todo-list-item .left .left-edit {
   outline:none;
   border:none;
   word-wrap: break-word;
 }
-.todo-list-item-label-edit.active {
-  background-color: green;
-}
-
-.todo-list-item-right{
+.todo-list-item .right{
   width: 20%;
   position:absolute;
   display: inline-block;
 }
 
-
-.todo-list-item.done .todo-list-item-left {
-
-  text-decoration: line-through;
+.todo-list-item .right .right-btn{
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  text-align: center;
 }
 
-.todo-list-item-left-view.done {
-  text-decoration: line-through;
-}
+.todo-list-item.done .left {
 
-.todo-list-item.important .todo-list-item-label {
-  font-weight: bold;
-  color: steelblue;
+  text-decoration: line-through;
 }
